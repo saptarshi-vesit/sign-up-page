@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+body {
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.form { /*setting base styling for our form */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+}
+
+.form * { /* here "*" means that all content within the form element will be styled */
+    box-sizing: border-box; /*this property ensures that the height and width of a box element is not added with padding and border widths. */
+    line-height: 1.6; /*decides spacing between each sentence in a paragraph or each element within a container. A number indicates spacing relative to font-size of the 
+    form */
+}
+.form > * {
+    align-self: flex-start;
+}
+
+.form__title {
+    font-size: 2em; /*font-size here is relative to the font-size of form element i.e. 32px */
+    font-weight: 600; /*decides boldness of text*/
+}
+
+.form__item {
+    display: flex; /*this is the parent element(div container) and to make its child elements flexible, we use CSS flexblox. Parent element's display property must be
+    set to flex */
+    flex-direction: column; /*this defines how the container wants to stack it's flex items (here items are stacked vertically) */
+}
+
+
+.form__label { /*adding style to our label tags */
+    font-weight: 600;
+    padding: 10px 0;
+}
+
+.form__input { /*adding style to input fields */
+    -webkit-appearance: none; /*removes all default CSS styling of input elements in iOS devices/ Safari web browsers.*/
+    width: 100%; /*allowing the input field to occupy entire width of its container, here the screen width */
+    max-width: 420px; /*setting maximum width of the input field to 420px */
+    padding: 0.8em;
+    font-size: 1em;
+    font-family: 'Source Sans Pro', sans-serif;
+    outline: none; /* removes any default borders in mobile devices */
+    border: 1.5px solid #dddddd;
+    border-radius: 4px;
+    background: #f9f9f9; /*very light gray color */
+    transition: background 0.25s, border-color 0.25s, color 0.25s; /* CSS transitions are used to animate CSS properties after some specified time. Here
+    we are animating border-color, background color of input field, and input content color after 0.25s each upon a false entry by user.*/
+}
+
+.form__input:focus { /* The :focus selector is allowed on elements that accept keyboard events or other user inputs. */
+    background: #ffffff; /*when user hovers the cursor over any input field and left clicks, the background changes to white. */
+}
+
+.form__input::placeholder { /*accessing placeholder attribute and styling it. */
+    color: #bbbbbb; 
+}
+
+.form__input--error {
+    color: #d50000;
+    background: #fff8f8;
+    border-color: #d50000;
+}
+
+.form__input--error::placeholder {
+    color: #ffb3b3;
+}
+
+.form__error { /* styling our error message to be displayed when false input by user. */
+    padding-top: 10px;
+    color: #d50000;
+    font-size: 0.9em;
+    visibility: hidden; /*this only hides the error message in the screen but the span element still takes up space. */
+}
+
+.form__input--error + .form__error { /* this statement make form__error visible only when form__input--error actually exists.
+    The input and span tags are siblings within the div container. By using the '+' operator, we create a condition that the content of the 
+    span tag will only be visible when its previous sibling, i.e. form__input--error class exists. */
+    visibility: visible; 
+}
+
+.form__input--shortfield { /* block element modifier class. The number input field must be smaller than the text input in our page. This class allows us to modify 
+    that specific block(number input field). */
+    max-width: 250px; /*here by changing only the max-width property we can modify width of number field, because it is already configured to occupy entire width of parent
+    container beacuse of inhereting form__input class before. */
+}
+
+textarea.form__input {
+    resize: none; /*this disables the text area resizing property of textarea tag. */
+    min-height: 200px; /* setting default height of the text area. */
+}
+
+.form__btn {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    font-size: 1.1em;
+    max-width: 115px;
+    padding: 10px 16px;
+    margin: 40px 0;
+    color: #ffffff;
+    background: #14b64a;
+    border: 1px solid #0fa942;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;   
+}
+
+.form__btn:hover { /*changes submit button's background color when user hovers mouse cursor over the button. */
+    background: #0fa942;
+}
